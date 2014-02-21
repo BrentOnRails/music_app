@@ -1,0 +1,16 @@
+<h1><%= @track.name %></h1>
+
+<%= link_to @track.album.band.name, band_url(@track.album.band)%> - <%= link_to @track.album.name, album_url(@track.album)%> - <%= @track.name %>
+
+
+
+
+
+<% if !@track.nil? %>
+<h1> Lyrics go here and stuff </h1>
+<% else %>
+<h1> <%=  @track.lyrics %></h1>
+<% end %>
+
+
+Add lyrics to this album!  Will Eventually go here!
