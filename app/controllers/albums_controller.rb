@@ -1,5 +1,7 @@
 class AlbumsController < ApplicationController
-
+  def new
+    @album = Album.new
+  end
 
   def show
     @album = Album.find(params[:id])
@@ -8,10 +10,10 @@ class AlbumsController < ApplicationController
 
 
   def create
-    @album = Band.new(band_params)
-
+    @album = Album.new(album_params)
+    @album.band_id = params[:band_id]
     if @album.save
-      redirect_to album_url(@album)
+      redirect_to band_album_url(@album.band, @album)
     else
       flash.now[:errors] = @album.errors.full_messages
       render :new
@@ -20,8 +22,8 @@ class AlbumsController < ApplicationController
 
 
   private
-  def band_params
-    params.require(:album).permit(:name, :band_id)
+  def album_params
+    params.require(:album).permit(:name)
   end
 
 

@@ -3,15 +3,17 @@
 <%= link_to "All Bands", bands_url %>
 <h2> Albums </h2>
 <ul>
-<% @band.albums.each do |album| %>
-<li><%= link_to album.name, album_url(album[:id]) %></li>
-<% end %>
 
-<% if @band.albums.empty?%>
- No Albums currently added for this Band
-<% end %>
-</ul>
+  <% @band.albums.each do |album| %>
+  <li><%= link_to album.name, band_album_url(@band.id, album.id)%></li>
+  <% end %>
 
+  <% if @band.albums.empty?%>
+   No Albums currently added for this Band
+  <% end %>
+  </ul>
 
 <hr>
-<%= link_to "Add New Album to this band", new_album_url %>
+
+<%= link_to "Add New Album to this band", new_band_album_url(@band) %>
+<%= button_to "Delete #{@band.name}", @band, :method => :delete %>
