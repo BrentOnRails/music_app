@@ -5,4 +5,10 @@ class TracksController < ApplicationController
     render :show
   end
 
+  def new
+    @track = Track.new
+
+    render :new
+  end
+
 end

@@ -10,3 +10,4 @@
 
 <hr>
 <%= link_to "Add New Track to this Album", new_track_url %>
+<%= button_to "Delete #{@album.name}", band_album_url(@album.band, @album), :method => :delete %>

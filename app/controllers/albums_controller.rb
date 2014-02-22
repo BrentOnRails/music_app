@@ -20,6 +20,13 @@ class AlbumsController < ApplicationController
     end
   end
 
+  def destroy
+    @album = Album.find(params[:id])
+    @band = Band.find(params[:band_id])
+    @album.delete
+    redirect_to band_url(@band)
+  end
+
 
   private
   def album_params
