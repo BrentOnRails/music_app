@@ -1,0 +1,24 @@
+<% action = (album.persisted? ? band_album_url(album) : band_albums_url) %>
+<% method = (album.persisted? ? "put" : "post") %>
+<% message = (album.persisted? ? "Update album" : "Create album") %>
+
+<form action="<%= action %>" method="post">
+  <input
+     name="_method"
+     type="hidden"
+     value="<%= method %>">
+  <input
+     name="authenticity_token"
+     type="hidden"
+     value="<%= form_authenticity_token %>">
+
+  <label for="album_name">album Name</label>
+  <input
+     id="album_name"
+     name="album[name]"
+     type="text">
+
+  <br>
+
+  <input type="submit" value="<%= message %>">
+</form>
