@@ -4,10 +4,10 @@
 <h2> Tracks </h2>
 <ul>
 <% @album.tracks.each do |track| %>
-<li><%= link_to track.name, track_url(track) %></li>
+<li><%= link_to track.name, band_album_track_url(@album.band, @album, track) %></li>
 <% end %>
 </ul>
 
 <hr>
-<%= link_to "Add New Track to this Album", new_track_url %>
+<%= link_to "Add New Track to this Album", new_band_album_track_url(@album.band, @album) %>
 <%= button_to "Delete #{@album.name}", band_album_url(@album.band, @album), :method => :delete %>

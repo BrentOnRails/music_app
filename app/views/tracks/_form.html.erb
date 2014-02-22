@@ -1,0 +1,24 @@
+<% action = (track.persisted? ? band_album_track_url(track) : band_album_tracks_url) %>
+<% method = (track.persisted? ? "put" : "post") %>
+<% message = (track.persisted? ? "Update track" : "Create track") %>
+
+<form action="<%= action %>" method="post">
+  <input
+     name="_method"
+     type="hidden"
+     value="<%= method %>">
+  <input
+     name="authenticity_token"
+     type="hidden"
+     value="<%= form_authenticity_token %>">
+
+  <label for="track_name">track Name</label>
+  <input
+     id="track_name"
+     name="track[name]"
+     type="text">
+
+  <br>
+
+  <input type="submit" value="<%= message %>">
+</form>

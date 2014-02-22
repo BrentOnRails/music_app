@@ -1,6 +1,6 @@
 <h1><%= @track.name %></h1>
 
-<%= link_to @track.album.band.name, band_url(@track.album.band)%> - <%= link_to @track.album.name, album_url(@track.album)%> - <%= @track.name %>
+<%= link_to @track.album.band.name, band_url(@track.album.band)%> - <%= link_to @track.album.name, band_album_url(@track.album.band, @track.album)%> - <%= @track.name %>
 
 
 
@@ -14,3 +14,5 @@
 
 
 Add lyrics to this album!  Will Eventually go here!
+
+<%= button_to "Delete #{@track.name}", band_album_track_url(@track.album.band, @track.album, @track), :method => :delete %>
