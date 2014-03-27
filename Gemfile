@@ -43,7 +43,7 @@ gem 'bcrypt-ruby', '~> 3.1.2', :require => 'bcrypt'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-#
+# debu
 
 
 group :development do
